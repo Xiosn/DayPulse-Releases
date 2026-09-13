@@ -63,6 +63,7 @@ DayPulse 客户端已内置完整的热更新防护与垃圾回收机制：
 
 | 版本名称 (`versionName`) | 内部版本号 (`versionCode`) | 文件名 | 文件大小 | SHA256 校验和 | 国内极速直链 |
 |:---:|:---:|:---|:---:|:---|:---:|
+| **v0.05.1** | **51** | `DayPulse_v0.05.1_51.wgt` | 16.36 MB | `baf03b96aa4567f4d9dbcfa5d3911d3cf029b4d61249b25ee81c05c7c490bc43` | [极速下载](https://ghfast.top/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/wgt/DayPulse_v0.05.1_51.wgt) |
 | **v0.05** | **5** | `DayPulse_v0.05_5.wgt` | 16.36 MB | `3ccc4ba65053a67a366f45e404706affd84c8510e738b90a62bc8c403b1876a1` | [极速下载](https://ghfast.top/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/wgt/DayPulse_v0.05_5.wgt) |
 
 ---
