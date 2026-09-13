@@ -12,7 +12,7 @@
 
 ---
 
-## 二、热更新资源包命名规范
+## 二、热更新资源包命名规范与编号铁律
 
 热更新包统一遵循以下命名格式：
 
@@ -20,9 +20,17 @@
 DayPulse_v{versionName}_{versionCode}.wgt
 ```
 
-**示例**：
-- `DayPulse_v1.0.3_103.wgt`
-- `DayPulse_v1.0.4_104.wgt`
+* **参数说明**：
+  * `{versionName}`：面向用户的应用版本名称字符串（如 `0.05`、`1.0.3`），对应 `manifest.json` 的 `versionName`；
+  * `{versionCode}`：供系统/服务端识别的纯数字递增版本代号（如 `5`、`103`），对应 `manifest.json` 的 `versionCode`。
+* **命名示例**：
+  * `DayPulse_v0.05_5.wgt`
+  * `DayPulse_v0.06_6.wgt`
+  * `DayPulse_v1.0.3_103.wgt`
+
+### 避坑重点：
+1. **严禁直接上传默认名**：HBuilderX 导出的 `__UNI__7CC4088.wgt` 必须在重命名后归档，避免历史版本相互覆盖。
+2. **versionCode 必须递增**：客户端仅在检测到 `服务端 versionCode > 本地当前 versionCode` 时才会触发热更新，未递增编号将导致热更失效。
 
 ---
 
