@@ -5,18 +5,48 @@
 
 ---
 
-## 📌 发布分支导航矩阵
+## 📌 一、发布分支导航矩阵
 
 为解决不同产物混杂、发布混乱的问题，本仓库采用**严格分支隔离策略**，将全量安装包与增量热更新资源包独立管理：
 
 | 分支名称 | 托管产物形态 | 应用场景 | 产物规范与示例 | 分支直达链接 |
 |:---|:---|:---|:---|:---:|
-| **`apk`** | Android 原生全量安装包 | 新安装、大版本重构、底层原生 SDK/插件变动 | `DayPulse_v{versionName}_{versionCode}.apk`<br>例：`DayPulse_v1.0.3_103.apk` | [👉 进入 `apk` 分支](https://github.com/Xiosn/DayPulse-Releases/tree/apk) |
-| **`wgt`** | uni-app 热更新差量资源包 | 日常功能微调、Bug 修复、UI 优化、秒级静默更新 | `DayPulse_v{versionName}_{versionCode}.wgt`<br>例：`DayPulse_v1.0.3_103.wgt` | [👉 进入 `wgt` 分支](https://github.com/Xiosn/DayPulse-Releases/tree/wgt) |
+| **`apk`** | Android 原生全量安装包 | 新安装、大版本重构、底层原生 SDK/插件变动 | `DayPulse_v{versionName}_{versionCode}.apk`<br>例：`DayPulse_v0.05_5.apk` | [👉 进入 `apk` 分支](https://github.com/Xiosn/DayPulse-Releases/tree/apk) |
+| **`wgt`** | uni-app 热更新差量资源包 | 日常功能微调、Bug 修复、UI 优化、秒级静默更新 | `DayPulse_v{versionName}_{versionCode}.wgt`<br>例：`DayPulse_v0.05_5.wgt` | [👉 进入 `wgt` 分支](https://github.com/Xiosn/DayPulse-Releases/tree/wgt) |
 
 ---
 
-## ⚡ 国内免翻墙极速下载 CDN 规则
+## 🏷️ 二、APK 与 WGT 版本命名规范与编号铁律
+
+所有归档至本仓库或通过 Releases 分发的安装包/热更包，必须严格遵循统一命名规范：
+
+### 1. 命名结构公式
+* **全量安装包 (APK)**：`DayPulse_v{versionName}_{versionCode}.apk`
+* **差量热更新包 (WGT)**：`DayPulse_v{versionName}_{versionCode}.wgt`
+
+### 2. 参数定义与对照表
+| 命名参数 | 对应 `manifest.json` 字段 | 类型 | 说明与要求 | 示例 |
+|:---|:---|:---|:---|:---|
+| **`{versionName}`** | `"versionName"` | 字符串 | 面向用户的应用版本展示名称 | `0.05`, `1.0.3` |
+| **`{versionCode}`** | `"versionCode"` | 正整数 | **系统判定升级的唯一核心依据** | `5`, `103` |
+
+### 3. 命名示例
+* **APK 示例**：
+  * `DayPulse_v0.05_5.apk`（Android 正式全量安装包）
+  * `DayPulse_v1.0.0_100.apk`（大版本里程碑安装包）
+* **WGT 示例**：
+  * `DayPulse_v0.05_5.wgt`（热更新补丁包）
+  * `DayPulse_v0.06_6.wgt`（递增修复热更包）
+
+### 4. 核心避坑铁律
+1. **严禁直接上传默认名**：  
+   HBuilderX 导出的产物名为 `__UNI__7CC4088.wgt`，此为开发环境临时名。上传前**必须重命名**为上述规范命名，彻底杜绝历史版本被覆盖踩踏。
+2. **WGT 热更必须递增 `versionCode`**：  
+   客户端与服务端热更新判断规则为：**`服务端 versionCode > 客户端本地当前 versionCode`**。若发布新 WGT 时未在 `manifest.json` 递增 `versionCode`，客户端判定为相同版本，将无法触发热更检测与安装。
+
+---
+
+## ⚡ 三、国内免翻墙极速下载 CDN 规则
 
 所有发布在 GitHub Releases 的安装包或更新资源，均自动配合开源 CDN 加速镜像生成国内高速直连链接：
 
@@ -24,14 +54,14 @@
 https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/{tag}/{filename}
 ```
 
-- **全量 APK 直链示例**：  
-  `https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/v1.0.3/DayPulse_v1.0.3_103.apk`
-- **差量 WGT 直链示例**：  
-  `https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/v1.0.2/DayPulse_1.0.2.wgt`
+* **全量 APK 直链示例**：  
+  `https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/v0.05/DayPulse_v0.05_5.apk`
+* **差量 WGT 直链示例**：  
+  `https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/v0.05/DayPulse_v0.05_5.wgt`
 
 ---
 
-## 🔗 项目关联仓库导航
+## 🔗 四、项目关联仓库导航
 
 1. 📱 **[DayPulse 主客户端工程](https://github.com/Xiosn/DayPulse.git)**：基于 uni-app + Vue 3 的多端核心源码；
 2. 🌐 **[DayPulse_H5 网页端](https://github.com/Xiosn/DayPulse_H5.git)**：独立 Web 站点源码；
