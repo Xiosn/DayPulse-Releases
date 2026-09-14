@@ -63,6 +63,7 @@ DayPulse 客户端已内置完整的热更新防护与垃圾回收机制：
 
 | 版本名称 (`versionName`) | 内部版本号 (`versionCode`) | 文件名 | 文件大小 | SHA256 校验和 | 国内极速直链 |
 |:---:|:---:|:---|:---:|:---|:---:|
+| **v0.05.5** | **55** | `DayPulse_v0.05.5_55.wgt` | 16.36 MB | `a5c15b954f397ad0a6ff7bb84d927f115c1e9f3e3410da61c48f5f1887fcc7f5` | [极速下载](https://ghfast.top/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/wgt/DayPulse_v0.05.5_55.wgt) |
 | **v0.05.4** | **54** | `DayPulse_v0.05.4_54.wgt` | 16.36 MB | `32e9b534cbd29c0dcf4d3b0c67325d6c03abf0f1eeaf0b015439de5f2e7e6db9` | [极速下载](https://ghfast.top/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/wgt/DayPulse_v0.05.4_54.wgt) |
 | **v0.05.3** | **53** | `DayPulse_v0.05.3_53.wgt` | 16.36 MB | `2e9bc7411a8128e2e3666c47c1a970b1292349ff9bb1e5eaa18bca8338ea4864` | [极速下载](https://ghfast.top/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/wgt/DayPulse_v0.05.3_53.wgt) |
 | **v0.05.2** | **52** | `DayPulse_v0.05.2_52.wgt` | 16.36 MB | `18793c2ddf6712cdc57a44cba3a40be60ed5e4a7ec08ad9066266283cec6a4ee` | [极速下载](https://ghfast.top/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/wgt/DayPulse_v0.05.2_52.wgt) |
