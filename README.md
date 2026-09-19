@@ -1,69 +1,62 @@
-# DayPulse-Releases (官方发布与产物分发中心)
+# DayPulse-Releases (日脉官方发行归档)
 
-> **感受时间的温度，记录当下的坚持。**  
-> 本仓库为 **DayPulse (日脉)** 官方各端编译产物分发中心与版本发布资产托管仓库。
-
----
-
-## 📌 一、发布分支导航矩阵
-
-为解决不同产物混杂、发布混乱的问题，本仓库采用**严格分支隔离策略**，将全量安装包与增量热更新资源包独立管理：
-
-| 分支名称 | 托管产物形态 | 应用场景 | 产物规范与示例 | 分支直达链接 |
-|:---|:---|:---|:---|:---:|
-| **`apk`** | Android 原生全量安装包 | 新安装、大版本重构、底层原生 SDK/插件变动 | `DayPulse_v{versionName}_{versionCode}.apk`<br>例：`DayPulse_v0.05_5.apk` | [👉 进入 `apk` 分支](https://github.com/Xiosn/DayPulse-Releases/tree/apk) |
-| **`wgt`** | uni-app 热更新差量资源包 | 日常功能微调、Bug 修复、UI 优化、秒级静默更新 | `DayPulse_v{versionName}_{versionCode}.wgt`<br>例：`DayPulse_v0.05_5.wgt` | [👉 进入 `wgt` 分支](https://github.com/Xiosn/DayPulse-Releases/tree/wgt) |
+> 本仓库专用于统一托管与归档 **DayPulse (日脉)** 的全量安装包 (APK) 与差量热更新资源包 (WGT)。
 
 ---
 
-## 🏷️ 二、APK 与 WGT 版本命名规范与编号铁律
+## 一、版本号管理铁律（全局单一递增主线）
 
-所有归档至本仓库或通过 Releases 分发的安装包/热更包，必须严格遵循统一命名规范：
+为彻底避免 APK 底座与 WGT 热更新版本倒挂，本项目严格遵循以下规范：
 
-### 1. 命名结构公式
-* **全量安装包 (APK)**：`DayPulse_v{versionName}_{versionCode}.apk`
-* **差量热更新包 (WGT)**：`DayPulse_v{versionName}_{versionCode}.wgt`
-
-### 2. 参数定义与对照表
-| 命名参数 | 对应 `manifest.json` 字段 | 类型 | 说明与要求 | 示例 |
-|:---|:---|:---|:---|:---|
-| **`{versionName}`** | `"versionName"` | 字符串 | 面向用户的应用版本展示名称 | `0.05`, `1.0.3` |
-| **`{versionCode}`** | `"versionCode"` | 正整数 | **系统判定升级的唯一核心依据** | `5`, `103` |
-
-### 3. 命名示例
-* **APK 示例**：
-  * `DayPulse_v0.05_5.apk`（Android 正式全量安装包）
-  * `DayPulse_v1.0.0_100.apk`（大版本里程碑安装包）
-* **WGT 示例**：
-  * `DayPulse_v0.05_5.wgt`（热更新补丁包）
-  * `DayPulse_v0.06_6.wgt`（递增修复热更包）
-
-### 4. 核心避坑铁律
-1. **严禁直接上传默认名**：  
-   HBuilderX 导出的产物名为 `__UNI__7CC4088.wgt`，此为开发环境临时名。上传前**必须重命名**为上述规范命名，彻底杜绝历史版本被覆盖踩踏。
-2. **WGT 热更必须递增 `versionCode`**：  
-   客户端与服务端热更新判断规则为：**`服务端 versionCode > 客户端本地当前 versionCode`**。若发布新 WGT 时未在 `manifest.json` 递增 `versionCode`，客户端判定为相同版本，将无法触发热更检测与安装。
+1. **`versionCode`（纯数字代号）全局唯一且严格单调递增**：
+   - 无论是发布全量 APK 还是增量 WGT，`versionCode` **必须严格按顺序 +1 递增**；
+   - 客户端版本检测逻辑：`只要 服务端 versionCode > 本地当前 versionCode`，即触发更新。
+2. **`versionName`（版本名称字符串）语义化规范**：
+   - **大版本 / 次版本（X.Y）**：对应 **全量安装包 APK**（当涉及原生插件、底层 SDK、权限变更、无法通过 WGT 解决的改动时，升级 X 或 Y，例如 `0.06.0`、`0.07.0`）；
+   - **补丁修订号（Z）**：对应 **热更新包 WGT**（纯前端 JS/Vue/CSS 修复与优化，例如 `0.06.1`、`0.06.2`、`0.06.3`）。
 
 ---
 
-## ⚡ 三、国内免翻墙极速下载 CDN 规则
+## 二、仓库目录结构
 
-所有发布在 GitHub Releases 的安装包或更新资源，均自动配合开源 CDN 加速镜像生成国内高速直连链接：
+整个发行仓库统一汇聚于 `main` 主分支，按产物类型分目录清晰归档：
 
 ```text
-https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/{tag}/{filename}
+DayPulse-Releases/
+├── apk/                  # Android 全量安装包 (.apk)
+│   └── DayPulse_v0.06.3_63.apk
+├── wgt/                  # 跨平台增量热更新包 (.wgt)
+│   ├── DayPulse_v0.06.2_62.wgt
+│   ├── DayPulse_v0.06.3_63.wgt
+│   └── DayPulse_v0.06.4_64.wgt
+└── README.md
 ```
-
-* **全量 APK 直链示例**：  
-  `https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/v0.05/DayPulse_v0.05_5.apk`
-* **差量 WGT 直链示例**：  
-  `https://ghfast.top/https://github.com/Xiosn/DayPulse-Releases/releases/download/v0.05/DayPulse_v0.05_5.wgt`
 
 ---
 
-## 🔗 四、项目关联仓库导航
+## 三、国内极速免翻墙下载直链规范
 
-1. 📱 **[DayPulse 主客户端工程](https://github.com/Xiosn/DayPulse.git)**：基于 uni-app + Vue 3 的多端核心源码；
-2. 🌐 **[DayPulse_H5 网页端](https://github.com/Xiosn/DayPulse_H5.git)**：独立 Web 站点源码；
-3. 🚀 **[DayPulse_Server 服务端](https://github.com/Xiosn/DayPulse_Server.git)**：FastAPI 异步高性能后端与管理后台接口服务；
-4. 📦 **[DayPulse-Releases 发布仓库](https://github.com/Xiosn/DayPulse-Releases.git)**（当前仓库）。
+所有产物均支持通过开源 CDN 镜像直连高速下载：
+
+### 1. 全量安装包 (APK) 直链模板
+```text
+https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/apk/DayPulse_v{versionName}_{versionCode}.apk
+```
+
+**最新 APK 示例：**
+- [DayPulse_v0.06.3_63.apk](https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/apk/DayPulse_v0.06.3_63.apk)
+
+### 2. 增量热更新 (WGT) 直链模板
+```text
+https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/wgt/DayPulse_v{versionName}_{versionCode}.wgt
+```
+
+**最新 WGT 示例：**
+- [DayPulse_v0.06.4_64.wgt](https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/wgt/DayPulse_v0.06.4_64.wgt)
+
+---
+
+## 四、安全校验与签名
+- **证书别名**：`daypulse`
+- **签名算法**：SHA256withRSA
+- **证书路径**：`DayPulse/打包资料/daypulse.keystore`
