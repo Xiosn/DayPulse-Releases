@@ -29,7 +29,8 @@ DayPulse-Releases/
 ├── wgt/                  # 跨平台增量热更新包 (.wgt)
 │   ├── DayPulse_v0.06.2_62.wgt
 │   ├── DayPulse_v0.06.3_63.wgt
-│   └── DayPulse_v0.06.4_64.wgt
+│   ├── DayPulse_v0.06.4_64.wgt
+│   └── DayPulse_v0.07.2_72.wgt
 └── README.md
 ```
 
@@ -53,7 +54,7 @@ https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/ma
 ```
 
 **最新 WGT 示例：**
-- [DayPulse_v0.06.4_64.wgt](https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/wgt/DayPulse_v0.06.4_64.wgt)
+- [DayPulse_v0.07.2_72.wgt](https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/wgt/DayPulse_v0.07.2_72.wgt)
 
 ---
 
