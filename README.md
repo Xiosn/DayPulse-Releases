@@ -24,7 +24,8 @@
 ```text
 DayPulse-Releases/
 ├── apk/                  # Android 全量安装包 (.apk)
-│   └── DayPulse_v0.06.3_63.apk
+│   ├── DayPulse_v0.06.3_63.apk
+│   └── DayPulse_v0.07.0_70.apk
 ├── wgt/                  # 跨平台增量热更新包 (.wgt)
 │   ├── DayPulse_v0.06.2_62.wgt
 │   ├── DayPulse_v0.06.3_63.wgt
@@ -40,11 +41,11 @@ DayPulse-Releases/
 
 ### 1. 全量安装包 (APK) 直链模板
 ```text
-https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/apk/DayPulse_v{versionName}_{versionCode}.apk
+https://gh-proxy.com/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/apk/DayPulse_v{versionName}_{versionCode}.apk
 ```
 
 **最新 APK 示例：**
-- [DayPulse_v0.06.3_63.apk](https://ghproxy.net/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/apk/DayPulse_v0.06.3_63.apk)
+- [DayPulse_v0.07.0_70.apk](https://gh-proxy.com/https://raw.githubusercontent.com/Xiosn/DayPulse-Releases/main/apk/DayPulse_v0.07.0_70.apk)
 
 ### 2. 增量热更新 (WGT) 直链模板
 ```text
